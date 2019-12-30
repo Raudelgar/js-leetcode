@@ -1,0 +1,12 @@
+{
+	"name": "js-leetcode",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"scripts": {
+		"test": "node main.js"
+	},
+	"keywords": [],
+	"author": "Raudel Garcia",
+	"license": "ISC"
+}
