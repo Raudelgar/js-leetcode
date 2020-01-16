@@ -123,8 +123,55 @@ var moveZeroes = function(nums) {
 	return nums;
 };
 
+/** 
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice
+*/
+
+/** 
+Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+
+1.Each row must contain the digits 1-9 without repetition.
+1.Each column must contain the digits 1-9 without repetition.
+3.Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+*/
+
+/** 
+You are given an n x n 2D matrix representing an image.
+Rotate the image by 90 degrees (clockwise).
+
+Note:
+You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
+*/
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function(matrix) {
+	let c = 0;
+	let hashObj = {};
+
+	if (!matrix || matrix.length === 0 || matrix.length === 1) {
+		return matrix;
+	}
+
+	for (let i = matrix.length - 1, j = 0; i >= 0; i--, j++) {
+		hashObj[j] = new Array(...matrix[i]);
+	}
+
+	while (c < matrix.length) {
+		let a = hashObj[String(c)];
+		for (let i = 0; i < matrix[c].length; i++) {
+			matrix[i].splice(c, 1, a[i]);
+		}
+		c++;
+	}
+	return matrix;
+};
+
 exports.maxProfit = maxProfit;
 exports.singleNumber = singleNumber;
 exports.intersect = intersect;
 exports.plusOne = plusOne;
 exports.moveZeroes = moveZeroes;
+exports.rotate = rotate;
